@@ -1,37 +1,24 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import HomePage from "./Home";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import NavBar from "./components/NavBar";
+import MarvelPage from "./pages/MarvelPage";
+import DcPage from "./pages/DcPage";
+import EntryPage from "./pages/EntryPage";
 
-function NavBar(){
-  return (
-    <nav>
-      <ul>
-        <li>
-          <img src="" alt="" />
-        </li>
-        <li>
-          <Link to="/">Inicio</Link>
-        </li>
-        <li>
-          <Link to="/marvel">Marvel</Link>
-        </li>
-        <li>
-          <Link to="/dc">Dc</Link>
-        </li>
-      </ul>
-    </nav>
-  )
-}
 
 export default function App(){
     return (
         <BrowserRouter>
-          <main className="flex flex-col">
-            <header className="h-[60%]">
+          <main className="flex flex-col h-full">
+            <header>
               <NavBar />
             </header>
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/marvel" element={<MarvelPage />}/>
+                <Route path="/dc" element={<DcPage />}/>
+                <Route path="/entry" element={<EntryPage />}/>
             </Routes>
           </main>
       </BrowserRouter>
